@@ -3,6 +3,7 @@
 Use the new GPT-3.5 TURBO api to build a chatGPT chatbot for multiple Large PDF files.
 
 Tech stack used includes LangChain, Faiss, Fs library, Nodejs, ReactJs, Openai, and JSX. LangChain is a framework that makes it easier to build scalable AI/LLM apps and chatbots. Faiss is a vectorstore for storing embeddings and your PDF in text to later retrieve similar docs.
+
 ![Screenshot (31)](https://github.com/sonu7524/Chatbot-PDFGPT-MERN/assets/100096513/cd681ce3-53da-4771-8e59-0acd78bd15d8)
 
 ## Approach
