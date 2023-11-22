@@ -1,0 +1,46 @@
+.messenger{
+    position: relative;
+}
+
+.chat-message{
+    position: relative;
+}
+.user{
+    position: absolute;
+    right: 0;
+    background-color: #5b7ce1;
+    width: 50%;
+    border-radius: 0.2rem;
+    padding: 1rem 1rem;
+    padding-left: 4rem;
+    color: white;
+    margin-top: 1rem !important;
+    margin-right: 6rem !important;
+}
+
+.chatbot{
+    margin-top: 8rem !important;
+    margin-left: 8rem !important;
+    position: absolute;
+    top: 10;
+    background-color:   #d2d1d1;
+    width: 50%;
+    border-radius: 0.2rem;
+    padding: 1rem 1rem;
+    padding-left: 4rem;
+    color: black;
+}
+
+.user-image{
+    position: absolute;
+    width: 3rem;
+    left: 4px;
+    top: 0px;
+}
+
+.chatbot-image{
+    position: absolute;
+    width: 3rem;
+    left: 4px;
+    top: 10px;
+}

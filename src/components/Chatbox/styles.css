@@ -1,0 +1,39 @@
+.chatbox-container{
+    width: 80%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+}
+
+.chatbox{
+    position: fixed;
+    bottom: 0;
+    width: 80%;
+    height: 10%;
+    left: 40%;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+#text{
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    width: 60%;
+    padding: 0.5rem 1rem;
+    border-color:rgba(75, 85, 99, 1);
+    
+}
+
+#send{
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    border-color: gray;
+    border-width: 0.5px;
+    padding: 0.5rem 1rem;
+    background-color: #4169E1;
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
