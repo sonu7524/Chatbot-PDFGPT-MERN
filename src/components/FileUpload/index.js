@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import pdflogo from '../../assets/pdf-logo.png';
 import logo from '../../assets/logo-transparent.png';
 
-export default function FileUpload() {
+export default function FileUpload({setIsUploading}) {
     const [selectedFiles, setSelectedFiles] = useState([]);
   
     const handleFileChange = (e) => {
@@ -19,19 +19,23 @@ export default function FileUpload() {
     };
 
     const handleDelete = async (fileName, index) => {
+      setIsUploading(true);
       setSelectedFiles((oldArray) => oldArray.filter((file, i) => i !== index));
       try{
         await axios.delete(`https://pdfgpt-u827.onrender.com/api/delete/${fileName}`);
+        setIsUploading(false);
         toast.success('File deleted successfully');
       }
       catch(error){
         console.error(error);
+        setIsUploading(false);
         toast.error('Error deleting file');
       }
     }
 
     const handleUpload = async (e) => {
       e.preventDefault();
+      setIsUploading(true);
         const formData = new FormData();
         
         for (let i = 0; i < selectedFiles.length; i++) {
@@ -44,9 +48,11 @@ export default function FileUpload() {
               'Content-Type': 'multipart/form-data',
             },
           });
+          setIsUploading(false);
           toast.success('Files uploaded successfully');
         } catch (error) {
           console.error('Error uploading files:', error);
+          setIsUploading(false);
           toast.error('Error uploading files');
         }
       };

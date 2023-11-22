@@ -14,29 +14,14 @@ import path,{dirname} from 'path';
 import cors from 'cors';
 const app = express();
 const port = process.env.PORT || 5000;
-const uploadsDirectory = './uploads';
 
-
-// load pdfs from uploads directory
-fs.watch(uploadsDirectory, async (eventType, filename) => {
-  if (eventType === 'change' && filename.endsWith('.pdf')) {
-    const pdfFilePaths = await getFilesPath(uploadsDirectory);
-    console.log(pdfFilePaths);
-    ingestMultipleDocs(pdfFilePaths)
-      .then(() => {
-        console.log('Document processed successfully');
-      })
-      .catch((error) => {
-        console.error('Error processing document:', error);
-      });
-  }
-});
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
+app.use(cors({ origin: 'https://chatbot-pdfgpt-sld.vercel.app' }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
