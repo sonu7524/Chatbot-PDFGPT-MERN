@@ -1,7 +1,7 @@
 import express from 'express';
 import fs from 'fs/promises';
 import multer from 'multer';
-import { removeFilesInDirectory } from '../utils/removeFiles.js';  
+import { removeFileFromDirectory } from '../utils/removeFiles.js';  
 import { getFilesPath } from '../utils/getFilesPath.js';
 import { ingestMultipleDocs } from '../utils/loader.js';
 const fileRouter = express.Router();
@@ -23,8 +23,8 @@ const upload = multer({ storage: storage });
 fileRouter.delete('/delete/:fileName', async (req, res) => {
     const fileName = req.params.fileName;
     try{
-        await removeFilesInDirectory(uploadsDirectory, fileName);
-        const pdfFilePaths = await fs.readdirSync(uploadsDirectory);
+        await removeFileFromDirectory(uploadsDirectory, fileName);
+        const pdfFilePaths = await getFilesPath(uploadsDirectory);
         await ingestMultipleDocs(pdfFilePaths);
         res.send({
             status: 200,
