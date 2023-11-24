@@ -20,7 +20,7 @@ const Chatbox = ({isUploading}) => {
   };
 
   const handleSend = async () => {
-    handleInputChange
+    handleInputChange();
     await handleUserInput();
   };
 
