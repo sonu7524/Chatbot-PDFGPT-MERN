@@ -49,7 +49,7 @@ const Chatbox = ({isUploading}) => {
             </div>
             <div className="chatbox">
               <input onChange={(e) => setUserInput(e.target.value)} value={userInput} type="text" placeholder="Enter your question" id="text" />
-              <button onClick={handleSend} id="send">Send<SendRoundedIcon/></button>
+              <button onClick={handleUserInput} id="send">Send<SendRoundedIcon/></button>
             </div>
         </div>
       )}
