@@ -14,11 +14,19 @@ const Chatbox = ({isUploading}) => {
   const [userInput, setUserInput] = useState("");
   let [userMessage, setUserMessage] = useState("");
   let[ isLoading, setIsLoading] = useState(true);
-  const handleUserInput = async () => {
-    setChatbotResponse("");
-    setUserMessage(userInput);
-    setUserInput("");
 
+  const handleInputChange = () => {
+    setUserMessage(userInput);
+  };
+
+  const handleSend = async () => {
+    handleInputChange
+    await handleUserInput();
+  };
+
+  const handleUserInput = async () => {
+    setChatbotResponse("");    
+    setUserInput("");
     await axios.get(`https://pdfgpt-u827.onrender.com/api/ask?question=${encodeURIComponent(userMessage)}`)
       .then((response) => {
         setChatbotResponse(response.data.result.text);
@@ -48,7 +56,7 @@ const Chatbox = ({isUploading}) => {
             </div>
             <div className="chatbox">
               <input onChange={(e) => setUserInput(e.target.value)} type="text" placeholder="Enter your question" id="text" />
-              <button onClick={handleUserInput} id="send">Send<SendRoundedIcon/></button>
+              <button onClick={handleSend} id="send">Send<SendRoundedIcon/></button>
             </div>
         </div>
       )}
