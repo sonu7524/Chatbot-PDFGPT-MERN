@@ -15,19 +15,11 @@ const Chatbox = ({isUploading}) => {
   let [userMessage, setUserMessage] = useState("");
   let[ isLoading, setIsLoading] = useState(true);
 
-  const handleInputChange = () => {
-    setUserMessage(userInput);
-  };
-
-  const handleSend = async () => {
-    handleInputChange();
-    await handleUserInput();
-  };
 
   const handleUserInput = async () => {
-    setChatbotResponse("");    
-    setUserInput("");
-    await axios.get(`https://pdfgpt-u827.onrender.com/api/ask?question=${encodeURIComponent(userMessage)}`)
+    setChatbotResponse("");
+    setUserMessage(userInput);    
+    await axios.get(`https://pdfgpt-u827.onrender.com/api/ask?question=${encodeURIComponent(userInput)}`)
       .then((response) => {
         setChatbotResponse(response.data.result.text);
         setIsLoading(false);
@@ -38,6 +30,7 @@ const Chatbox = ({isUploading}) => {
         setChatbotResponse("Something went wrong!");
         setIsLoading(false);
       });
+      setUserInput("");
   };
   return (
     <div className="chatbox-container">
@@ -55,7 +48,7 @@ const Chatbox = ({isUploading}) => {
               )}
             </div>
             <div className="chatbox">
-              <input onChange={(e) => setUserInput(e.target.value)} type="text" placeholder="Enter your question" id="text" />
+              <input onChange={(e) => setUserInput(e.target.value)} value={userInput} type="text" placeholder="Enter your question" id="text" />
               <button onClick={handleSend} id="send">Send<SendRoundedIcon/></button>
             </div>
         </div>
