@@ -8,7 +8,7 @@
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
-    height: 60%;
+    height: 80%;
 }
 .chatbox{
     display: flex;
@@ -51,7 +51,7 @@
         flex-direction: column;
         justify-content: space-between;
         width: 100%;
-        height: 80vh;
+        height: 70vh;
         padding: 1rem 0rem;
     }
 }
