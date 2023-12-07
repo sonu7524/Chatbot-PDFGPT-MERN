@@ -118,6 +118,7 @@
     color: #fff;
     font-size: 16px;
     transform: .3s ease;
+    cursor: pointer;
   }
   
   .submit:hover {
@@ -133,6 +134,18 @@
     to {
       transform: scale(1.8);
       opacity: 0;
+    }
+  }
+
+  @media screen and (max-width: 980px) {
+    .signup{
+      padding: 0rem 2rem;
+    }
+    .signup > img{
+      display: none;
+    }
+    .form{
+      padding: 5rem 4rem;
     }
   }
 

@@ -5,7 +5,7 @@ import SendRoundedIcon from '@mui/icons-material/SendRounded';
 import './styles.css';
 import user from '../../assets/user.png';
 import bot from '../../assets/bot.png';
-import Loader from "../Loader";
+import CircularLoader from "../Loader/CircularLoader";
 
 
 //import {chatbotImage} from './chatbot.png';
@@ -38,7 +38,7 @@ const Chatbox = ({isUploading}) => {
             <h1>Chat Box</h1>
         </div>
       {isUploading ? (
-        <Loader />
+        <CircularLoader />
       ) : (
         <div>
             <div className="chat-messages">
