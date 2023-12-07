@@ -90,7 +90,6 @@
   @media screen and (max-width: 768px) {
     .file-upload{
         width: 100%;
-        flex-direction: row;
         background-color: white;
     }
     .file-upload > img {
@@ -115,5 +114,13 @@
     }
     .custum-file-upload .icon svg{
       height: 2rem;
+    }
+    .uploaded-pdfs{
+      width: 100%;
+      color: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
     }
   }
