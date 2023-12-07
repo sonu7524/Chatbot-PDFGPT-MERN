@@ -1,0 +1,8 @@
+.mobile-header{
+    background-color: #00002B;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

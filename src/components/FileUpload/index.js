@@ -61,16 +61,18 @@ export default function FileUpload({setIsUploading}) {
         <form className="file-upload">
           <img style={{width: '15rem'}} src={logo} />
           <ToastContainer position="top-right" autoClose={3000}  />
-            <label className="custum-file-upload">
-            <div className="icon">
-                <CloudUploadIcon sx={{ fontSize: 80 }} />
+            <div className="fileupload-container">
+              <label className="custum-file-upload">
+                  <div className="icon">
+                      <CloudUploadIcon sx={{ fontSize: 80 }} />
+                  </div>
+                  <div className="text">
+                      <span>Click to upload file</span>
+                  </div>
+                  <input accept=".pdf" onChange={handleFileChange} multiple type="file" id="file"/>
+              </label>
+              <button className="upload" onClick={handleUpload}>Upload</button>
             </div>
-            <div className="text">
-                <span>Click to upload image</span>
-            </div>
-            <input accept=".pdf" onChange={handleFileChange} multiple type="file" id="file"/>
-            </label>
-            <button className="upload" onClick={handleUpload}>Upload</button>
             <div className="uploaded-pdfs">
                 {selectedFiles.map((file,index) => (
                     <div className="file" key={index}>

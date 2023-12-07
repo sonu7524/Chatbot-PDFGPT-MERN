@@ -33,14 +33,14 @@ const Chatbox = ({isUploading}) => {
       setUserInput("");
   };
   return (
-    <div className="chatbox-container">
-        <div style={{textAlign: 'center', margin: '30px 0px', color:'darkblue'}}>
+    <div className="chatbox-container mobile-chatbox">
+        <div className="chatbox-title" style={{textAlign: 'center', margin: '30px 0px', color:'darkblue'}}>
             <h1>Chat Box</h1>
         </div>
       {isUploading ? (
         <CircularLoader />
       ) : (
-        <div>
+        <div className="chat-container">
             <div className="chat-messages">
               {userMessage && <ChatMessage text={userMessage} isUser={true} image={user} />}
               {chatbotResponse && (

@@ -2,7 +2,7 @@
   margin: 0;
   font-family: sans-serif;
 }
-.ChatbotPage{
+.desktopChatbox{
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -10,6 +10,20 @@
   background-color: darkblue;
 }
 
-.Chatbox{
+.desktopChatbox{
   background-color: white;
+}
+
+.MobileChatbox{
+  display: none;
+  background-color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .desktopChatbox{
+    display: none;
+  }
+  .MobileChatbox{
+    display: block;
+  }
 }
