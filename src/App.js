@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<LoginPage />} />
+          <Route path="/*" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           {token ? <Route path="/chatbot" element={<ChatbotPage />} /> : <Route path="/chatbot" element={<Navigate to="/" />} />}
         </Routes>
